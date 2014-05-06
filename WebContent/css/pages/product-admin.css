@@ -1,0 +1,24 @@
+#toolsWindow{
+	height: 300px;
+}
+
+#productWindow{
+	
+}
+
+.my-edit{
+	cursor: pointer;
+}
+
+.my-edit:hover{
+	color: #C0C0C0;
+}
+
+.bgtransparent{
+	background: none transparent;
+	overflow-x: hidden;
+}
+
+.my-small-height{
+	
+}

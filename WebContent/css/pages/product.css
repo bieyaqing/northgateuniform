@@ -1,0 +1,12 @@
+#toggleNav{
+	margin-top: -24px;
+}
+
+.my-small-height{
+	max-height: 260px;
+}
+
+.bgtransparent{
+	background: none transparent;
+	overflow-x: hidden;
+}

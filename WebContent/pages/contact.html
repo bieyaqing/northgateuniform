@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Bie Yaqing">
+
+<link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/animation/animate-custom.css" rel="stylesheet" media="screen" />
+<link href="../css/pages/contact.css" rel="stylesheet" media="screen" />
+<title>Contact</title>
+</head>
+<body class="bgtransparent">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2><span>Contact Us</span></h2>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label class="control-label" for="customerNameInput">Name:</label><font class="pull-right" size=2 color="red" id="customerNameMsg">*</font>
+					<div class="row">
+						<div class="col-sm-4">
+							<select class="form-control" id=titleInput>
+								<option>Mr.</option>
+								<option>Mrs.</option>
+							</select>
+						</div>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="customerNameInput" placeholder="Put your name here...">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="companyInput">Company:</label><font class="pull-right" size=2 color="red" id="companyMsg">*</font>
+					<input type="text" class="form-control" id="companyInput" placeholder="Put your company name here...">
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="industryInput">Industry:</label><font class="pull-right" size=2 color="red" id="industryMsg">*</font>
+					<select class="form-control input-sm" id="industryInput" onchange="isOtherIndustry()">
+						<option>security agencies</option>
+						<option>cleaning industries</option>
+						<option>manufacturers</option>
+						<option>shopping complexes</option>
+						<option>food outlets</option>
+						<option>offices</option>
+						<option>schools</option>
+						<option>other institutions</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control sr-only" id="otherIndustyInput" placeholder="Put your industry here...">
+				</div>
+			</div>
+			<div class="col-sm-1">
+				<img src="/northgateuniform/img/icon-arrow.png" class="img-responsive my-arrow">
+			</div>
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label class="control-label" for="addressInput1">Address:</label><font class="pull-right" size=2 color="red" id="addressMsg">*</font>
+					<input type="text" class="form-control" id="addressInput1" placeholder="Building">
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" id="addressInput2" placeholder="Street">
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="my-margin-top">Singapore</div>
+						</div>
+						<div class="col-sm-9">
+							<input type="number" class="form-control" id="addressInput3" placeholder="Postcode">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="phoneInput">Phone:</label><font class="pull-right" size=2 color="red" id="phoneMsg">*</font>
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="pull-right my-margin-top">+ 65</div>
+						</div>
+						<div class="col-sm-9">
+							<input type="tel" class="form-control" id="phoneInput" placeholder="phone">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="emailInput">Email:</label><font class="pull-right" size=2 color="red" id="emailMsg">*</font>
+					<input type="text" class="form-control" id="emailInput" placeholder="email">
+				</div>
+			</div>
+			<div class="col-sm-1">
+				<img src="/northgateuniform/img/icon-arrow.png" class="img-responsive my-arrow">
+			</div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label class="control-label" for="requirementInput">Requirement:</label><font class="pull-right" size=2 color="red" id="requirementMsg">*</font>
+					<textarea class="form-control" id="requirementInput" rows="6" placeholder="Generally describe your requirement that we can do for you..."></textarea>
+				</div>
+				<div class="form-group">
+					<form class="" enctype="multipart/form-data" method="post" name="sampleImgUploadForm" id="sampleImgUploadForm">
+						<label for="sampleImgUploadFile" class="btn btn-default">Upload sample image</label><font class="pull-right" size=2 color="red" id="uploadMsg"></font>
+						<input type="file" class="sr-only" name="file" id="sampleImgUploadFile" onchange="sampleImgUpload()">
+					</form>
+				</div>
+				<div class="form-group">
+					<div class="row" id="sampleImgs">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-primary btn-lg pull-right" onclick="submitContact()">Submit</button>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<p>© YAQING 2014</p>
+		</footer>
+		<div class="modal fade" id="messageMod" tabindex="-1" role="dialog" aria-labelledby="messageModContent" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="alert alert-warning">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<strong class="modal-title" id="messageModContent"></strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../jquery/jquery-2.1.0.js" type="text/javascript"></script>
+	<script src="../bootstrap3/js/bootstrap.min.js"></script>
+	<script src="../js/pages/contact.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+.my-pointer{
+	cursor: pointer;
+}
+
+#my-brand{
+	width: 220px;
+}
+
+#nav-title{
+	margin-left: 40px;
+}
+
+.my-iframe{
+	border-style: hidden;
+	width: 100%;
+}
+
+.my-yellow-01{
+	background-color: #FFFFDB;
+}
+
+.bgcolor {
+	background: #e2ffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #e2ffff 0%, #fdffff 0%, #fdffff 15%, #e1ffff
+		59%, #e1ffff 59%, #4fdcef 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e2ffff),
+		color-stop(0%, #fdffff), color-stop(15%, #fdffff),
+		color-stop(59%, #e1ffff), color-stop(59%, #e1ffff),
+		color-stop(100%, #4fdcef)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e2ffff 0%, #fdffff 0%, #fdffff 15%,
+		#e1ffff 59%, #e1ffff 59%, #4fdcef 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e2ffff 0%, #fdffff 0%, #fdffff 15%, #e1ffff 59%
+		, #e1ffff 59%, #4fdcef 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #e2ffff 0%, #fdffff 0%, #fdffff 15%, #e1ffff
+		59%, #e1ffff 59%, #4fdcef 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #e2ffff 0%, #fdffff 0%, #fdffff 15%, #e1ffff
+		59%, #e1ffff 59%, #4fdcef 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2ffff',
+		endColorstr='#4fdcef', GradientType=0); /* IE6-9 */
+}
+

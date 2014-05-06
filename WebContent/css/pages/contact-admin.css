@@ -1,0 +1,12 @@
+.bgtransparent{
+	background: none transparent;
+	overflow-x: hidden;
+}
+
+#toolsWindow{
+	height: 300px;
+}
+
+#contactWindow{
+	
+}

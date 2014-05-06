@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Bie Yaqing">
+
+<link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/animation/animate-custom.css" rel="stylesheet"
+	media="screen" />
+<link href="../css/pages/welcome-admin.css" rel="stylesheet"
+	media="screen" />
+<title>Welcome Admin</title>
+</head>
+<body class="bgtransparent">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Manage Welcome Page Content</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="titleInput">Title:</label><font class="pull-right" size=2 color="red" id="titleMsg">*</font>
+					<input type="text" class="form-control" id="titleInput" placeholder="Put your title here...">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="companyInput">Company:</label><font class="pull-right" size=2 color="red" id="companyMsg">*</font>
+					<input type="text" class="form-control" id="companyInput" placeholder="Put your company name here...">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="telInput">Tel:</label><font class="pull-right" size=2 color="red" id="telMsg">*</font>
+					<input type="number" class="form-control" id="telInput" placeholder="Put your telephone number here...">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="faxInput">Handphone:</label><font class="pull-right" size=2 color="red" id="handphoneMsg">*</font>
+					<input type="number" class="form-control" id="handphoneInput" placeholder="Put your handphone number here...">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="emailInput">Email:</label><font class="pull-right" size=2 color="red" id="emailMsg">*</font>
+					<input type="text" class="form-control" id="emailInput" placeholder="Put your email here...">
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="faxInput">Fax:</label><font class="pull-right" size=2 color="red" id="faxMsg">*</font>
+					<input type="number" class="form-control" id="faxInput" placeholder="Put your fax number here...">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label class="control-label" for="addressInput1">Address</label><font class="pull-right" size=2 color="red" id="addressMsg">*</font><br>
+					<label class="control-label col-sm-2" for="addressInput1">Address 1: </label><div class="col-sm-10"><input type="text" class="form-control" id="addressInput1" placeholder="Put your building number here..."></div>
+					<label class="control-label col-sm-2" for="addressInput2">Address 2: </label><div class="col-sm-10"><input type="text" class="form-control" id="addressInput2" placeholder="Put your street number here..."></div>
+					<label class="control-label col-sm-2" for="addressInput3">Address 3: </label><div class="col-sm-10"><input type="text" class="form-control" id="addressInput3" placeholder="Put your room number here..."></div>
+					<label class="control-label col-sm-2" for="addressInput4">Postcode: </label><div class="col-sm-10"><input type="text" class="form-control" id="addressInput4" placeholder="Put your postcode number here..."></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label class="control-label" for="textInput">Welcome Text:</label><br><font class="pull-right" size=2 color="red" id="textMsg">*</font>
+					<textarea rows=4 class="form-control" id="textInput" placeholder="Put your welcome content here... You can write html style code here!!!"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<button class="btn btn-default btn-warning center-block" onclick="recommendInputs()">Recommended Content</button>
+			</div>
+			<div class="col-sm-6">
+				<button class="btn btn-default btn-primary center-block" onclick="updateWelcome()">Click to Update Welcome Content</button>
+			</div>
+		</div>
+		<div class="modal fade" id="messageMod" tabindex="-1" role="dialog" aria-labelledby="messageModContent" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="alert alert-warning">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<strong class="modal-title" id="messageModContent"></strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../jquery/jquery-2.1.0.js" type="text/javascript"></script>
+	<script src="../bootstrap3/js/bootstrap.min.js"></script>
+	<script src="../js/pages/welcome-admin.js" type="text/javascript"></script>
+</body>
+</html>

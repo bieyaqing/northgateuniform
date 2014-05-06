@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 26, 2014 7:31:52 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="model.Product" table="PRODUCT">
+  <id name="id" type="long">
+   <column name="ID"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="name" type="java.lang.String">
+   <column name="NAME"/>
+  </property>
+  <property generated="never" lazy="false" name="price" type="double">
+   <column name="PRICE"/>
+  </property>
+  <set lazy="false" name="images" sort="unsorted" table="PRODUCTIMAGE">
+   <key>
+    <column name="ID"/>
+   </key>
+   <one-to-many class="model.ProductImage"/>
+  </set>
+  <property generated="never" lazy="false" name="category" type="java.lang.String">
+   <column name="CATEGORY"/>
+  </property>
+  <property generated="never" lazy="false" name="material" type="java.lang.String">
+   <column name="MATERIAL"/>
+  </property>
+  <property generated="never" lazy="false" name="size" type="java.lang.String">
+   <column name="SIZE"/>
+  </property>
+  <property generated="never" lazy="false" name="displayStatus" type="java.lang.String">
+   <column name="DISPLAYSTATUS"/>
+  </property>
+  <property generated="never" lazy="false" name="description" type="java.lang.String">
+   <column length="655" name="DESCRIPTION"/>
+  </property>
+  <property generated="never" lazy="false" name="remark" type="java.lang.String">
+   <column length="655" name="REMARK"/>
+  </property>
+  <property generated="never" lazy="false" name="propertyJsonStr" type="java.lang.String">
+   <column length="655" name="PROPERTYJSONSTR"/>
+  </property>
+  <property generated="never" lazy="false" name="createDate" type="java.util.Date">
+   <column name="CREATEDATE"/>
+  </property>
+ </class>
+</hibernate-mapping>

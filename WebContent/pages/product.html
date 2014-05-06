@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Bie Yaqing">
+
+<link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap3/css/offcanvas.css" rel="stylesheet">
+<link href="../css/animation/animate-custom.css" rel="stylesheet"
+	media="screen" />
+<link href="../css/pages/product.css" rel="stylesheet"
+	media="screen" />
+<title>Product</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<div class="pull-right visible-xs" id="toggleNav">
+					<button type="button" class="btn btn-primary btn-xs" data-toggle=offcanvas>Toggle nav</button>
+				</div>
+				<div class="row" id="productWindow">
+					
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+				<div class="list-group">
+					<a href="#" class="list-group-item active" onclick="filterProduct('all','listItem0')" id="listItem0">All Products</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('security agencies','listItem1')" id="listItem1">security agencies</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('cleaning industries','listItem2')" id="listItem2">cleaning industries</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('manufacturers','listItem3')" id="listItem3">manufacturers</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('shopping complexes','listItem4')" id="listItem4">shopping complexes</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('food outlets','listItem5')" id="listItem5">food outlets</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('offices','listItem6')" id="listItem6">offices</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('schools','listItem7')" id="listItem7">schools</a>
+					<a href="#" class="list-group-item" onclick="filterProduct('other institutions','listItem8')" id="listItem8">other institutions</a>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<p>© YAQING 2014</p>
+		</footer>
+	</div>
+	<script src="../jquery/jquery-2.1.0.js" type="text/javascript"></script>
+	<script src="../bootstrap3/js/bootstrap.min.js"></script>
+	<script src="../bootstrap3/js/offcanvas.js"></script>
+	<script src="../js/pages/product.js" type="text/javascript"></script>
+</body>
+</html>

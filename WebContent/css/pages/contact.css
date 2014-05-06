@@ -1,0 +1,17 @@
+.bgtransparent{
+	background: none transparent;
+	overflow-x: hidden;
+}
+
+.my-arrow{
+	margin-top: 100px;
+	max-height: 50px;
+}
+
+.my-small-height{
+	max-height: 100px;
+}
+
+.my-margin-top{
+	margin-top: 5px;
+}
