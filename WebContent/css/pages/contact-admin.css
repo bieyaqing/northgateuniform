@@ -4,9 +4,50 @@
 }
 
 #toolsWindow{
-	height: 300px;
+	
+}
+
+.my-btn{
+	width: 120px;
 }
 
 #contactWindow{
 	
+}
+
+.color-darkblue{
+	color: #002E5C;
+}
+
+.color-blue{
+	color: #3385AD;
+}
+
+.color-green{
+	color: #339966;
+}
+
+.color-red{
+	color: #FF5C33;
+}
+
+.color-yellow{
+	color: #CCCC00;
+}
+
+.color-orange{
+	color: #E65C00;
+}
+
+.color-gray{
+	color: #999999;
+}
+
+.status-option{
+	
+}
+
+.status-option :hover{
+	background-color: #FFFFCC;
+	cursor: pointer;
 }

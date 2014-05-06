@@ -97,7 +97,7 @@ function createProductItem(products){
 		}
 		
 		productsHtml += '\
-			<div class="col-6 col-sm-6 col-lg-4 thumbnail" style="height:480px">\
+			<div class="col-6 col-sm-6 col-lg-4" style="height:480px">\
 				<font size="4"><strong>'+name+'</strong></font>\
 				<img class="img-thumbnail img-responsive my-small-height" src="'+image+'" alt="product-image">\
 				<div class="row">\

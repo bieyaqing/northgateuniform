@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Bie Yaqing">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="">
-<link rel="apple-touch-icon-precomposed" href="">
-<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="..img/nglogo144.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/nglogo114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/nglogo72.png">
+<link rel="apple-touch-icon-precomposed" href="../img/nglogo144.png">
+<link rel="shortcut icon" href="../img/nglogo144.png">
 
 <link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/animation/animate-custom.css" rel="stylesheet" media="screen" />
@@ -27,7 +27,9 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<div class="navbar-brand" id="my-brand"><span class="my-pointer" onclick="clickHome()"></span><span class="my-pointer" id="nav-title" onclick="clickHome()">Welcome</span></div>
+				<div class="navbar-brand" id="my-brand">
+					<span class="my-pointer" onclick="clickHome()"><img class="img-responsive nav-logo" src="/northgateuniform/img/nguniform-small-logo.png"></span><span class="my-pointer" id="nav-title" onclick="clickHome()">Welcome</span>
+				</div>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,7 +38,7 @@
 				<ul class="nav navbar-nav">
 					<li><a class="my-pointer" onclick="clickWelcomeAdmin()">Welcome Admin</a></li>
 					<li><a class="my-pointer" onclick="clickProductAdmin()">Product Admin</a></li>
-					<li><a class="my-pointer" onclick="clickPricingAdmin()">Pricing Admin</a></li>
+<!-- 					<li><a class="my-pointer" onclick="clickPricingAdmin()">Pricing Admin</a></li> -->
 					<li><a class="my-pointer" onclick="clickContactAdmin()">Contact Admin</a></li>
 				</ul>
 			</div>

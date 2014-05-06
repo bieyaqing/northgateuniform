@@ -4,10 +4,17 @@
 
 #my-brand{
 	width: 220px;
+	margin-top: -7px;
 }
 
 #nav-title{
 	margin-left: 40px;
+}
+
+.nav-logo{
+	margin-top: -3px;
+	max-height: 40px;
+	display: inline-block;
 }
 
 .my-iframe{

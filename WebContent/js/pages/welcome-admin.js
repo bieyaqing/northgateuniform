@@ -149,8 +149,8 @@ pricings and most important our SINCERE services.</font></p>\
 	var address4 = 'SINGAPORE 408897';
 	var tel = '67456792';
 	var fax = '67430089';
-	var handphone = '97815053';
-	var email = 'northgateuniform@ymail.com';
+	var handphone = '97586096';
+	var email = 'northgateuniform@gmail.com';
 	
 	$("#titleInput").val(title);
 	$("#companyInput").val(company);

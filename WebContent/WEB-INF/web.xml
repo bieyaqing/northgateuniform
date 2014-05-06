@@ -82,6 +82,14 @@
     <url-pattern>/servlet/GetAllContactServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>EditContactServlet</servlet-name>
+    <servlet-class>servlet.EditContactServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditContactServlet</servlet-name>
+    <url-pattern>/servlet/EditContactServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>FileUploadServlet</servlet-name>
     <servlet-class>htmlutil.FileUploadServlet</servlet-class>
   </servlet>
