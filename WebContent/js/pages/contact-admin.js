@@ -65,7 +65,7 @@ function createContactItem(contacts){
 					<strong><font>'+date+'</font></strong>\
 				</div>\
 				<div class="col-sm-8">\
-					<div class="row"><div class="col-sm-12"><strong>'+title+' '+name+'</strong>&nbsp;<span class="label label-info">'+industry+'</span></div></div>\
+					<div class="row"><div class="col-sm-12"><strong>'+title+' '+name+'</strong>&nbsp;&nbsp;&nbsp;<span class="label label-info">'+industry+'</span></div></div>\
 					<div class="row"><div class="col-sm-3">Company: </div><div class="col-sm-9">'+company+'</div></div>\
 					<div class="row"><div class="col-sm-3">Address: </div><div class="col-sm-9">'+address+'</div></div>\
 					<div class="row"><div class="col-sm-3">Phone: </div><div class="col-sm-9">'+phone+'</div></div>\
