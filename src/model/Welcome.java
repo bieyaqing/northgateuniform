@@ -20,6 +20,7 @@ public class Welcome {
 	private String company;
 	private String address;
 	private long visitAmt;
+	private String adminAuth;
 	private Date createDate;
 	
 	public Welcome(){}
@@ -34,12 +35,13 @@ public class Welcome {
 		this.company = company;
 		this.address = address;
 		this.visitAmt = visitAmt;
-		try{
-			this.createDate = Config.SDF.parse(Config.SDFLOCAL.format(new Date()));
-		}catch(Exception e){
-			this.createDate = new Date();
-			e.printStackTrace();
-		}
+		this.createDate = new Date();
+//		try{
+//			this.createDate = Config.SDFLOCAL.parse(Config.SDF.format(new Date()));
+//		}catch(Exception e){
+//			this.createDate = new Date();
+//			e.printStackTrace();
+//		}
 	}
 	
 	public long getId(){
@@ -122,6 +124,14 @@ public class Welcome {
 		this.visitAmt = visitAmt;
 	}
 	
+	public String getAdminAuth(){
+		return this.adminAuth;
+	}
+	
+	public void setAdminAuth(String adminAuth){
+		this.adminAuth = adminAuth;
+	}
+	
 	public Date getCreateDate(){
 		return this.createDate;
 	}
@@ -143,6 +153,7 @@ public class Welcome {
 		welcomeJson.put(Config.EMAIL, this.email);
 		welcomeJson.put(Config.COMPANY, this.company);
 		welcomeJson.put(Config.ADDRESS, this.address);
+		//welcomeJson.put(Config.ADMINAUTH, this.adminAuth);
 		welcomeJson.put(Config.CREATEDATE, Config.SDFLOCAL.format(this.createDate));
 		
 		return welcomeJson;

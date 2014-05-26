@@ -41,6 +41,9 @@
   <property generated="never" lazy="false" name="status" type="java.lang.String">
    <column name="STATUS"/>
   </property>
+  <property generated="never" lazy="false" name="profit" type="java.lang.Double">
+   <column name="PROFIT"/>
+  </property>
   <property generated="never" lazy="false" name="remark" type="java.lang.String">
    <column length="655" name="REMARK"/>
   </property>

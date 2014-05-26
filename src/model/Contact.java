@@ -23,6 +23,7 @@ public class Contact {
 	private String requirement;
 	private Set<CustomerImage> photos;
 	private String status;
+	private double profit;
 	private String remark;
 	private Date createDate;
 	
@@ -40,13 +41,9 @@ public class Contact {
 		this.email = email;
 		this.requirement = requirement;
 		this.status = "pending";
+		this.profit = -1.0;
 		this.remark = remark;
-		try{
-			this.createDate = Config.SDF.parse(Config.SDFLOCAL.format(new Date()));
-		}catch(Exception e){
-			this.createDate = new Date();
-			e.printStackTrace();
-		}
+		this.createDate = new Date();
 	}
 	
 	public long getId(){
@@ -91,6 +88,10 @@ public class Contact {
 	
 	public String getStatus(){
 		return this.status;
+	}
+	
+	public double getProfit(){
+		return this.profit;
 	}
 	
 	public String getRemark(){
@@ -145,6 +146,10 @@ public class Contact {
 		this.status = status;
 	}
 	
+	public void setProfit(double profit){
+		this.profit = profit;
+	}
+	
 	public void setRemark(String remark){
 		this.remark = remark;
 	}
@@ -183,6 +188,7 @@ public class Contact {
 		}
 		
 		returnJson.put(Config.STATUS, this.status);
+		returnJson.put(Config.PROFIT, this.profit);
 		returnJson.put(Config.REMARK, this.remark);
 		returnJson.put(Config.IMAGES, imageJArr);
 		returnJson.put(Config.CREATEDATE, Config.SDFLOCAL.format(this.createDate));

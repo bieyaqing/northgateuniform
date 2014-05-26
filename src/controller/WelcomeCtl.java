@@ -5,6 +5,7 @@ import java.util.Date;
 import model.Welcome;
 import model.WelcomeDAO;
 import ngsystem.Config;
+import ngsystem.EncryptUtil;
 
 import org.json.simple.JSONObject;
 
@@ -92,6 +93,10 @@ public class WelcomeCtl {
 					welcome.setVisitAmt((long) inputJson.get(Config.VISITAMT));
 				}
 				
+				if(inputJson.containsKey(Config.ADMINAUTH)){
+					welcome.setAdminAuth(EncryptUtil.md5((String) inputJson.get(Config.ADMINAUTH)));
+				}
+				
 				WelcomeDAO.modifyWelcome(welcome);
 				
 				returnJson.put(Config.STATUS, Config.SUCCESSCODE);
@@ -129,6 +134,51 @@ public class WelcomeCtl {
 			if(welcome != null){
 				returnJson.put(Config.STATUS, Config.SUCCESSCODE);
 				returnJson.put(Config.WELCOME, welcome.toJson());
+			}else{
+				returnJson.put(Config.STATUS, Config.FAILCODE);
+				returnJson.put(Config.WELCOME, "welcome object cannot found");
+			}
+		}catch(Exception e){
+			returnJson.put(Config.STATUS, Config.FAILCODE);
+			returnJson.put(Config.MESSAGE, e);
+			e.printStackTrace();
+		}
+		
+		return returnJson;
+	}
+	
+	public static JSONObject authenticate(JSONObject inputJson){
+		JSONObject returnJson = new JSONObject();
+		
+		try{
+			long id = (long) inputJson.get(Config.ID);
+			
+			Welcome welcome = WelcomeDAO.getWelcomeById(id);
+			
+			if(welcome == null){
+				try{
+					welcome = WelcomeDAO.getAllWelcomes().get(0);
+				}catch(Exception e){
+					e.printStackTrace();
+					welcome = null;
+				}
+			}
+			
+			if(welcome != null){
+				String adminAuth = (String) inputJson.get(Config.ADMINAUTH);
+				
+				if(welcome.getAdminAuth() == null){
+					returnJson.put(Config.STATUS, Config.SUCCESSCODE);
+					returnJson.put(Config.WELCOME, welcome.toJson());
+				}else{
+					if(welcome.getAdminAuth().equals(EncryptUtil.md5(adminAuth))){
+						returnJson.put(Config.STATUS, Config.SUCCESSCODE);
+						returnJson.put(Config.WELCOME, welcome.toJson());
+					}else{
+						returnJson.put(Config.STATUS, Config.FAILCODE);
+						returnJson.put(Config.MESSAGE, "password not correct");
+					}
+				}
 			}else{
 				returnJson.put(Config.STATUS, Config.FAILCODE);
 				returnJson.put(Config.WELCOME, "welcome object cannot found");

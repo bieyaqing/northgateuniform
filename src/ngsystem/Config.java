@@ -59,6 +59,7 @@ public class Config {
 	public static final String COMPANY = "company";
 	public static final String ADDRESS = "address";
 	public static final String VISITAMT = "visitAmt";
+	public static final String ADMINAUTH = "adminAuth";
 	
 	public static final String PRODUCTS = "products";
 	
@@ -77,6 +78,7 @@ public class Config {
 	public static final String CONTACT = "contact";
 	public static final String CONTACTS = "contacts";
 	public static final String CONTACTID = "contactId";
+	public static final String PROFIT = "profit";
 	
 	
 }

@@ -20,12 +20,13 @@ public class CustomerImage {
 	public CustomerImage(Contact contact, String url){
 		this.contact = contact;
 		this.url = url;
-		try{
-			this.createDate = Config.SDF.parse(Config.SDFLOCAL.format(new Date()));
-		}catch(Exception e){
-			this.createDate = new Date();
-			e.printStackTrace();
-		}
+		this.createDate = new Date();
+//		try{
+//			this.createDate = Config.SDFLOCAL.parse(Config.SDF.format(new Date()));
+//		}catch(Exception e){
+//			this.createDate = new Date();
+//			e.printStackTrace();
+//		}
 	}
 	
 	public long getId(){

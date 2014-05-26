@@ -1,4 +1,31 @@
-getProducts();
+authenticate();
+
+function authenticate(){
+	var adminAuth = localStorage.getItem("adminAuth");
+	var input = '{"id":1,"adminAuth":"'+adminAuth+'"}';
+	input = encodeURIComponent(input);
+	$(document).ready(function(){
+		$.ajax({
+			url: '/northgateuniform/servlet/AuthServlet?json='+input,
+			type: 'POST',
+			dataType: 'json',
+			error: function(err){
+				$("#messageModContent").html('Internet connection issue!');
+				$("#messageMod").modal('show');
+			},
+			success: function(data){
+				console.log(data);
+				var status = data["status"];
+				if(status == 0){
+					window.location.replace("/northgateuniform/pages/AdminLogin.html");
+				}else{
+					getProducts();
+				}
+			}
+		});
+	
+	});
+}
 
 function getProducts(){
 	$(document).ready(function(){

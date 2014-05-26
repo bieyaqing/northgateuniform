@@ -82,10 +82,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label class="control-label" for="passwordInput">Administrator Password:</label><br><font class="pull-right" size=2 color="red" id="passwordMsg">*</font>
+					<input type="password" class="form-control" id="passwordInput" placeholder="Put your password here...">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<button class="btn btn-default btn-danger center-block" onclick="logout()">Logout</button>
+			</div>
+			<div class="col-sm-4">
 				<button class="btn btn-default btn-warning center-block" onclick="recommendInputs()">Recommended Content</button>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				<button class="btn btn-default btn-primary center-block" onclick="updateWelcome()">Click to Update Welcome Content</button>
 			</div>
 		</div>

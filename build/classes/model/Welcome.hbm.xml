@@ -32,6 +32,9 @@
   <property generated="never" lazy="false" name="address" type="java.lang.String">
    <column length="655" name="ADDRESS"/>
   </property>
+  <property generated="never" lazy="false" name="adminAuth" type="java.lang.String">
+   <column length="655" name="ADMINAUTH"/>
+  </property>
   <property generated="never" lazy="false" name="visitAmt" type="long">
    <column name="VISITAMT"/>
   </property>

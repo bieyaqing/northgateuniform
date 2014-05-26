@@ -4,8 +4,14 @@
 <hibernate-configuration>
  <session-factory name="northgateuniform">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/northgateuniform</property>
-  <property name="hibernate.connection.username">root</property>
+  
+<!--   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/northgateuniform</property> -->
+<!--   <property name="hibernate.connection.username">root</property> -->
+  
+  <property name="hibernate.connection.url">jdbc:mysql://nguniform.cuj5s0hcdwoh.ap-southeast-1.rds.amazonaws.com:3306/nguniform</property>
+  <property name="hibernate.connection.username">nguniform</property>
+  <property name="hibernate.connection.password">nguniform</property>
+  
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="hibernate.show_sql">false</property>
   <property name="hibernate.format_sql">true</property>

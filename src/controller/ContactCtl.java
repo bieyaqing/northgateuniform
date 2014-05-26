@@ -121,6 +121,10 @@ public class ContactCtl {
 					contact.setStatus((String) inputJson.get(Config.STATUS));
 				}
 				
+				if(inputJson.containsKey(Config.PROFIT)){
+					contact.setProfit((double) inputJson.get(Config.PROFIT));
+				}
+				
 				ContactDAO.modifyContact(contact);
 				
 				returnJson.put(Config.STATUS, Config.SUCCESSCODE);

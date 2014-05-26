@@ -9,6 +9,14 @@
     <servlet-name>InitialSystemServlet</servlet-name>
     <url-pattern>/servlet/InitialSystemServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>servlet.AuthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/servlet/AuthServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>GetWelcomeServlet</servlet-name>
     <servlet-class>servlet.GetWelcomeServlet</servlet-class>

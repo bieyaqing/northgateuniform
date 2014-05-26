@@ -1,4 +1,32 @@
-getContent();
+authenticate();
+
+function authenticate(){
+	var adminAuth = localStorage.getItem("adminAuth");
+	var input = '{"id":1,"adminAuth":"'+adminAuth+'"}';
+	input = encodeURIComponent(input);
+	$(document).ready(function(){
+		$.ajax({
+			url: '/northgateuniform/servlet/AuthServlet?json='+input,
+			type: 'POST',
+			dataType: 'json',
+			error: function(err){
+				$("#messageModContent").html('Internet connection issue!');
+				$("#messageMod").modal('show');
+			},
+			success: function(data){
+				console.log(data);
+				var status = data["status"];
+				if(status == 0){
+					window.location.replace("/northgateuniform/pages/AdminLogin.html");
+				}else{
+					//do nothing
+					getContent();
+				}
+			}
+		});
+	
+	});
+}
 
 function getContent(){
 	var input = '{"id":1}';
@@ -63,6 +91,7 @@ function getContent(){
 				$("#faxInput").val(fax);
 				$("#handphoneInput").val(handphone);
 				$("#emailInput").val(email);
+				$("#passwordInput").val(localStorage.getItem("adminAuth"));
 			}
 		});
 	});
@@ -77,8 +106,9 @@ function updateWelcome(){
 	faxValidate();
 	addressValidate();
 	textValidate();
+	passwordValidate();
 	
-	if(titleValidate()&&companyValicate()&&telValidate()&&handphoneValidate()&&emailValicate()&&faxValidate()&&addressValidate()&&textValidate()){
+	if(titleValidate()&&companyValicate()&&telValidate()&&handphoneValidate()&&emailValicate()&&faxValidate()&&addressValidate()&&textValidate()&&passwordValidate()){
 		var title = $("#titleInput").val();
 		var company = $("#companyInput").val();
 		var text = $("#textInput").val();
@@ -94,6 +124,8 @@ function updateWelcome(){
 		var handphone = $("#handphoneInput").val();
 		var email = $("#emailInput").val();
 		
+		var password = $("#passwordInput").val();
+		
 		var address = address1;
 		if(address2.length > 0){
 			address += ', '+address2;
@@ -102,7 +134,7 @@ function updateWelcome(){
 			address += ', '+address3;
 		}
 		address += ', '+address4;
-		var input = '{"id":1,"title":"'+title+'","company":"'+company+'","text":"'+text+'","address":"'+address+'","tel":"'+tel+'","fax":"'+fax+'","handphone":"'+handphone+'","email":"'+email+'"}';
+		var input = '{"id":1,"title":"'+title+'","company":"'+company+'","text":"'+text+'","address":"'+address+'","tel":"'+tel+'","fax":"'+fax+'","handphone":"'+handphone+'","email":"'+email+'","adminAuth":"'+password+'"}';
 		input = encodeURIComponent(input);
 		
 		$.ajax({
@@ -116,7 +148,7 @@ function updateWelcome(){
 			success: function(data){
 				console.log(data);
 				var status = data["status"];
-				var message = data["message"]
+				var message = data["message"];
 				if(status == 0){
 					$("#messageModContent").html(message);
 					$("#messageMod").modal('show');
@@ -151,6 +183,7 @@ pricings and most important our SINCERE services.</font></p>\
 	var fax = '67430089';
 	var handphone = '97586096';
 	var email = 'northgateuniform@gmail.com';
+	var password = 'admin';
 	
 	$("#titleInput").val(title);
 	$("#companyInput").val(company);
@@ -163,6 +196,7 @@ pricings and most important our SINCERE services.</font></p>\
 	$("#faxInput").val(fax);
 	$("#handphoneInput").val(handphone);
 	$("#emailInput").val(email);
+	$("#passwordInput").val(password);
 }
 
 function titleValidate(){
@@ -277,7 +311,23 @@ function textValidate(){
 	}
 }
 
+function passwordValidate(){
+	var password = $("#passwordInput").val();
+	if(password.length == 0){
+		$("#passwordMsg").html('Please set a admin password!');
+		return false;
+	}else{
+		$("#passwordMsg").html('');
+		return true;
+	}
+}
+
 function isValidEmail(email) {
     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
     return pattern.test(email);
+}
+
+function logout(){
+	localStorage.clear();
+	location.reload();
 }

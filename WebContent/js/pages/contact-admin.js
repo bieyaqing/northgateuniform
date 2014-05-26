@@ -1,4 +1,31 @@
-getContacts();
+authenticate();
+
+function authenticate(){
+	var adminAuth = localStorage.getItem("adminAuth");
+	var input = '{"id":1,"adminAuth":"'+adminAuth+'"}';
+	input = encodeURIComponent(input);
+	$(document).ready(function(){
+		$.ajax({
+			url: '/northgateuniform/servlet/AuthServlet?json='+input,
+			type: 'POST',
+			dataType: 'json',
+			error: function(err){
+				$("#messageModContent").html('Internet connection issue!');
+				$("#messageMod").modal('show');
+			},
+			success: function(data){
+				console.log(data);
+				var status = data["status"];
+				if(status == 0){
+					window.location.replace("/northgateuniform/pages/AdminLogin.html");
+				}else{
+					getContacts();
+				}
+			}
+		});
+	
+	});
+}
 
 var CONTACTSHOLDER;
 
@@ -47,6 +74,7 @@ function createContactItem(contacts){
 		var industry = contact["industry"];
 		var requirement = contact["requirement"];
 		var status = contact["status"];
+		var profit = contact["profit"];
 		var images = contact["images"];
 		
 		//date = date.replace("T"," ");
@@ -65,6 +93,10 @@ function createContactItem(contacts){
 		
 		if(status == 'canceled'){
 			status = '<font class="color-gray">'+status+'</font>';
+		}
+		
+		if(profit == -1){
+			profit = undefined;
 		}
 		
 		var date = new Date(dateStr);
@@ -95,14 +127,24 @@ function createContactItem(contacts){
 					<div class="row"><div class="col-sm-3">Sample image:</div><div class="col-sm-9"><div class="row">'+imagesHtml+'</div></div></div>\
 				</div>\
 				<div class="col-sm-2">\
-					<strong onclick="openStatusOption('+id+')" id="statusDis-'+id+'">'+status+'</strong><label id="collapseSelect-'+id+'" onclick="openStatusOption('+id+')" class="glyphicon glyphicon-collapse-down pull-right"></label>\
-					<select onchange="updateContactStatus('+id+')" id="statusSelect-'+id+'" class="sr-only form-control">\
-						<option>select status</option>\
-						<option>pending</option>\
-						<option>processing</option>\
-						<option>completed</option>\
-						<option>canceled</option>\
-					</select>\
+					<div class="row">\
+						<div class="col-sm-12">\
+							<strong onclick="openStatusOption('+id+')" id="statusDis-'+id+'">'+status+'</strong><label id="collapseSelect-'+id+'" onclick="openStatusOption('+id+')" class="glyphicon glyphicon-collapse-down pull-right"></label>\
+							<select onchange="updateContactStatus('+id+')" id="statusSelect-'+id+'" class="sr-only form-control">\
+								<option>select status</option>\
+								<option>pending</option>\
+								<option>processing</option>\
+								<option>completed</option>\
+								<option>canceled</option>\
+							</select>\
+						</div>\
+					</div>\
+					<br>\
+					<div class="row">\
+						<div class="col-sm-12">\
+							<input type="number" class="form-control input-sm" id="profit-'+id+'" value='+profit+' placeholder="update the profit" onchange="updateProfit('+id+')">\
+						</div>\
+					</div>\
 				</div>\
 			</div><hr>';
 	}
@@ -163,6 +205,39 @@ function updateContactStatus(id){
 			}	
 		}
 	});
+}
+
+function updateProfit(id){
+	var profit = $("#profit-"+id).val();
+	if(profit.length > 0){
+		if(profit.indexOf(".") == -1){
+			profit = profit + ".0";
+		}
+		
+		var input = '{"id":'+id+',"profit":'+profit+'}';
+		input = encodeURIComponent(input);
+		$.ajax({
+			url: '/northgateuniform/servlet/EditContactServlet?json='+input,
+			type: 'POST',
+			dataType: 'json',
+			error: function(err){
+				$("#messageModContent").html('Internet connection issue!');
+				$("#messageMod").modal('show');
+			},
+			success: function(data){
+				console.log(data);
+				var status = data["status"];
+				var message = data["message"];
+				if(status==0){
+					$("#messageModContent").html(message);
+					$("#messageMod").modal('show');
+				}else{
+					$("#messageModContent").html('update success');
+					$("#messageMod").modal('show');
+				}	
+			}
+		});
+	}
 }
 
 function filterContact(contactStatus,btnId){
